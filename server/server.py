@@ -25,31 +25,24 @@ def server():
 
             try:
                 plates=myPlates.get_plates()
-            except:
+            except Exception as e:
                 print("failed to get num")
+                print(e)
             number=licenceplateML.getNumber(name)
             if(number!="" and number in plates):
-                    
                 r.set('ans', 'True')
-        except:
-            print("error")
+        except Exception as e:
+            print("error in server:")
+            print(e)
         """
         im=r.get('pic')
         fh = open(name, "wb")
         fh.write(im.decode('base64'))
         fh.close()
         #im = im.save(name)
-        """
-       
-            
-                        
+        """     
+                
     pass
-
-
-
-
-
-
 
 server()
 
