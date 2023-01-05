@@ -19,6 +19,7 @@ def main():
       gate=barrier.Barrier()
       r = redis.Redis(host="", port=6379)#ip=3.112.247.246
       my_mongo_client = pymongo.MongoClient("mongodb://54.173.237.181:27017/")
+      r.set('ans','False')
       while(True):
             im=takePic.take_pic(name)#update with redis
             with open(name,"rb") as imageFile:
